@@ -25,6 +25,8 @@ jobs:
           scope: ${{ github.owner }}
 
       - name: Install
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
         run: yarn
 
       - name: Build
