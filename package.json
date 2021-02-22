@@ -17,6 +17,7 @@
   "dependencies": {
     "@angular-devkit/core": "^11.2.1",
     "@angular-devkit/schematics": "^11.2.1",
+    "@doptools/schematic-project-base": "^0.0.0-dev.12",
     "jsonc-parser": "^3.0.0"
   },
   "devDependencies": {
