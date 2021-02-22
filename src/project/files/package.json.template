@@ -1,0 +1,22 @@
+{
+  "private": <%= private %>,
+  "name": "<%= packageName %>",
+  "version": "0.0.0",
+  "description": "<%= descriptions %>",
+  "homepage": "<%= homepage %>",
+  "author": "<%= author %>",
+  "license": "<%= author %>",
+  "scope": "<%= scope %>",
+  "keywords": [],
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "<%= repository %>"
+  },
+  "bugs": {
+    "url": "<%= bugs %>"
+  },
+  "devDependencies": {
+    "@doptools/cli": "<%= versions._doptools_cli %>"
+  }
+}

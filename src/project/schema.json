@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "id": "BaseProjectOptions",
+    "title": "Base Project Options",
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "The name of the project",
+        "type": "string",
+        "$default": {
+          "$source": "argv",
+          "index": 0
+        },
+        "x-prompt": "What name would you like to use for the new project?"
+      },
+      "private": {
+        "type": "boolean",
+        "description": "Mark the project as private",
+        "default": true
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the project",
+        "default": "",
+        "x-prompt": "Give a short description of the project?"
+      },
+      "repository": {
+        "type": "string",
+        "description": "The repository for the project",
+        "default": "",
+        "x-prompt": "Git repository?"
+      }
+    },
+    "required": ["name"]
+  }
+  
