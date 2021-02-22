@@ -25,5 +25,5 @@ jobs:
       - name: Build
         run: yarn run build
 
-      - name: Run
-        run: yarn run dryrun test-env --no-interactive
+    #  - name: Run
+    #    run: yarn run dryrun test-env --no-interactive
