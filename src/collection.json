@@ -2,10 +2,16 @@
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
     "project": {
-      "description": "Generates a base project",
+      "description": "Generates a typescript library project",
       "hidden": true,
       "factory": "./project",
       "schema": "./project/schema.json"
+    },
+    "new": {
+      "description": "Generates a typescript library project",
+      "hidden": true,
+      "factory": "./new",
+      "schema": "./new/schema.json"
     }
   }
 }

@@ -1,0 +1,92 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "id": "NewTsLibProjectOptions",
+    "title": "New Ts Lib Project Options",
+    "type": "object",
+    "properties": {
+        "directory": {
+            "type": "string",
+            "description": "The directory name to create the development environment in."
+        },
+        "name": {
+            "description": "The name of the project",
+            "type": "string",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt": "What name would you like to use for the new project?"
+        },
+        "private": {
+            "type": "boolean",
+            "description": "Mark the project as private",
+            "default": true
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the project",
+            "default": "",
+            "x-prompt": "Give a short description of the project?"
+        },
+        "repository": {
+            "type": "string",
+            "description": "The repository for the project",
+            "default": "",
+            "x-prompt": "Git repository?"
+        },
+        "author": {
+            "type": "string",
+            "description": "Author",
+            "default": "",
+            "x-prompt": "Author?"
+        },
+        "license": {
+            "type": "string",
+            "description": "License",
+            "default": "UNLICENCED",
+            "x-prompt": "License?"
+        },
+        "skipGit": {
+            "description": "Do not initialize a git repository.",
+            "type": "boolean",
+            "default": false,
+            "alias": "g"
+        },
+        "commit": {
+            "description": "Initial git repository commit information.",
+            "oneOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string",
+                            "format": "email"
+                        },
+                        "message": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "email"
+                    ]
+                }
+            ],
+            "default": true
+        },
+        "skipInstall": {
+            "description": "Do not install dependency packages.",
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "required": [
+        "name"
+    ]
+}

@@ -24,11 +24,15 @@
     "target": "es6",
     "types": [
       "node"
+    ],
+    "typeRoots": [
+      "../node_modules/@types",
+      "../types"
     ]
   },
   "include": [
     "**/*"
-  ],
+, "../types/merge-package.json.d.ts"  ],
   "exclude": [
     "*/files/**/*"
   ]

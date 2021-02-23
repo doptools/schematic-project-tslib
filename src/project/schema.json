@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema",
-    "id": "BaseProjectOptions",
-    "title": "Base Project Options",
+    "id": "TsLibProjectOptions",
+    "title": "Ts Lib Project Options",
     "type": "object",
     "properties": {
       "name": {
@@ -10,8 +10,7 @@
         "$default": {
           "$source": "argv",
           "index": 0
-        },
-        "x-prompt": "What name would you like to use for the new project?"
+        }
       },
       "private": {
         "type": "boolean",
@@ -21,14 +20,22 @@
       "description": {
         "type": "string",
         "description": "A description of the project",
-        "default": "",
-        "x-prompt": "Give a short description of the project?"
+        "default": ""
       },
       "repository": {
         "type": "string",
         "description": "The repository for the project",
-        "default": "",
-        "x-prompt": "Git repository?"
+        "default": ""
+      },
+      "author": {
+        "type": "string",
+        "description": "Author",
+        "default": ""
+      },
+      "license": {
+        "type": "string",
+        "description": "License",
+        "default": "UNLICENCED"
       }
     },
     "required": ["name"]

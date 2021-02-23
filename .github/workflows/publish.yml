@@ -33,6 +33,8 @@ jobs:
           versionRegex: '\/v(.*)$'
 
       - name: Install
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
         run: yarn
 
       - name: Build

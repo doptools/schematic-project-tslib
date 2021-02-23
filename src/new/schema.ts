@@ -5,7 +5,11 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface TsLibProjectOptions {
+export interface NewTsLibProjectOptions {
+  /**
+   * The directory name to create the development environment in.
+   */
+  directory?: string;
   /**
    * The name of the project
    */
@@ -30,5 +34,24 @@ export interface TsLibProjectOptions {
    * License
    */
   license?: string;
+  /**
+   * Do not initialize a git repository.
+   */
+  skipGit?: boolean;
+  /**
+   * Initial git repository commit information.
+   */
+  commit?:
+    | boolean
+    | {
+        name: string;
+        email: string;
+        message?: string;
+        [k: string]: unknown;
+      };
+  /**
+   * Do not install dependency packages.
+   */
+  skipInstall?: boolean;
   [k: string]: unknown;
 }
