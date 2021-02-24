@@ -3,14 +3,32 @@
     "typings": "dist/main/index.d.ts",
     "module": "dist/module/index.js",
     "scripts": {
-        "prebuild": "rimraf dist",
+        "prebuild": "run-p prebuild:*",
+        "prebuild:clean": "yarn run clean",
+
+        "clean": "run-p clean:*",
+        "clean:dist": "rimraf dist",
+        "clean:docs": "rimraf docs",
+
         "build": "run-p build:*",
+        "build:types": "tsc -p tsconfig.json --declaration --emitDeclarationOnly --declarationDir dist",
         "build:main": "tsc -p tsconfig.json",
         "build:module": "tsc -p tsconfig.module.json",
-        "fix": "run-s fix:*",
-        "fix:lint": "tslint src --ext .ts --fix",
+
+        "_doc": "typedoc  --theme minimal --excludePrivate --exclude **/*.spec.ts /src",
+        "doc": "run-s doc:*",
+        "doc:html": "yarn run _doc --out docs",
+        "doc:json": "yarn run _doc --json docs/typedoc.json",
+
         "check": "run-p check:*",
         "check:spelling": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
+        
+        "prerelease": "run-p prerelease:*",
+        "prerelease:build": "yarn build",
+        "prerelease:docs": "yarn doc",
+
+        "release": "echo release",
+
         "watch:build": "tsc -p tsconfig.json -w",
         "reset-hard": "git clean -dfx && git reset --hard && npm i"
     },
@@ -25,6 +43,7 @@
         "tslint-config-prettier": "<%= versions.tslint_config_prettier %>",
         "tslint-config-standard": "<%= versions.tslint_config_standard %>",
         "ts-node": "<%= versions.ts_node %>",
+        "typedoc": "<%= versions.typedoc %>",
         "typescript": "<%= versions.typescript %>"
     },
     "dops": {

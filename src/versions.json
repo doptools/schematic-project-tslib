@@ -9,6 +9,7 @@
   "tslint_config_prettier": "^1.18.0",
   "tslint_config_standard": "^9.0.0",
   "ts_node": "^9.1.1",
+  "typedoc": "^0.20.28",
   "typescript": "^4.1.5",
   "rollup": "^2.39.1",
   "_rollup__plugin_commonjs": "^17.1.0",
