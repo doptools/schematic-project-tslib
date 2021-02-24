@@ -9,7 +9,8 @@
     "build:ts": "tsc -p src/tsconfig.json",
     "build": "yarn run build:schema && yarn run build:ts",
     "start": "gulp",
-    "gen": "yarn run clear && yarn run build && npx @angular-devkit/schematics-cli ./:new --directory .tmp/tslib-testgen --debug=false"
+    "gen": "yarn run clear && yarn run build && npx @angular-devkit/schematics-cli ./:new --directory .tmp/tslib-testgen --debug=false",
+    "gen:test": "yarn run gen test --no-interactive"
   },
   "keywords": [
     "schematics"

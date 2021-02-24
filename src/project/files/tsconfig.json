@@ -2,11 +2,11 @@
     "compilerOptions": {
       "incremental": true,
       "target": "es2017",
-      "outDir": "dist",
+      "outDir": "dist/main",
       "rootDir": "src",
       "moduleResolution": "node",
       "module": "commonjs",
-      "declaration": true,
+      "declaration": false,
       "inlineSourceMap": true,
       "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
       "resolveJsonModule": true /* Include modules imported with .json extension. */,
@@ -29,7 +29,7 @@
   
       /* Debugging Options */
       "traceResolution": false /* Report module resolution log messages. */,
-      "listEmittedFiles": false /* Print names of generated files part of the compilation. */,
+      "listEmittedFiles": true /* Print names of generated files part of the compilation. */,
       "listFiles": false /* Print names of files part of the compilation. */,
       "pretty": true /* Stylize errors and messages using color and context. */,
   

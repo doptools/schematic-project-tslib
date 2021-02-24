@@ -1,5 +1,7 @@
 {
   "_doptools_cli": "^0.0.0-dev.7",
+  "_doptools_plugin_project_tslib": "0.0.0-dev.0",
+  "case": "^1.6.3",
   "cspell": "^5.2.4",
   "npm_run_all": "^4.1.5",
   "tslib": "^2.1.0",
@@ -7,5 +9,9 @@
   "tslint_config_prettier": "^1.18.0",
   "tslint_config_standard": "^9.0.0",
   "ts_node": "^9.1.1",
-  "typescript": "^4.1.5"
+  "typescript": "^4.1.5",
+  "rollup": "^2.39.1",
+  "_rollup__plugin_commonjs": "^17.1.0",
+  "_rollup__plugin_node_resolve": "^11.2.0",
+  "_rollup__plugin_typescript": "^8.2.0"
 }

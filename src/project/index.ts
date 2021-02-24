@@ -2,21 +2,17 @@ import {
   apply,
   chain,
   empty,
-  externalSchematic, MergeStrategy, mergeWith,
-  Rule,
+  externalSchematic, mergeWith,
+  noop,
+  renameTemplateFiles, Rule,
+  schematic,
   SchematicContext,
-  Tree,
-  template,
-  url,
-  renameTemplateFiles
+  template, Tree,
+  url
 } from "@angular-devkit/schematics";
-import { BaseProjectOptions, PackageJsonUtil } from '@doptools/schematic-project-base';
-import { TsLibProjectOptions } from "./schema";
-import { EditorConfig } from '@doptools/schematic-project-base';
-import { jsonc } from 'jsonc';
-import { ObservableLike, PackageJson } from 'type-fest';
+import { BaseProjectOptions, EditorConfig, PackageJsonUtil } from '@doptools/schematic-project-base';
 import versions from "../versions.json";
-import mergePackageJson from 'merge-package.json';
+import { TsLibProjectOptions } from "./schema";
 
 export default function (options: TsLibProjectOptions): Rule {
 
@@ -36,6 +32,9 @@ export default function (options: TsLibProjectOptions): Rule {
   ]);
 
   return chain([
+    async (_: Tree, context: SchematicContext) => {
+      context.logger.info('Building Typescript Library Project');
+    },
     mergeWith(
       apply(empty(), [
         externalSchematic("@doptools/schematic-project-base", "project", baseOptions),
@@ -67,6 +66,7 @@ export default function (options: TsLibProjectOptions): Rule {
       const tplPkg = tplFiles.read('package.json')?.toString('utf-8')!;
       const merged = PackageJsonUtil.merge(hostPkg, tplPkg);
       host.overwrite('package.json', merged);
-    }
+    },
+    options.web ? schematic("add-webbundler", {}) : noop
   ]);
 }

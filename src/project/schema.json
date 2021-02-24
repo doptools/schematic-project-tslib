@@ -17,6 +17,11 @@
         "description": "Mark the project as private",
         "default": true
       },
+      "web": {
+        "type": "boolean",
+        "description": "Adds web bundler",
+        "default": false
+      },
       "description": {
         "type": "string",
         "description": "A description of the project",

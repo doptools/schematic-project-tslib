@@ -7,6 +7,12 @@
       "factory": "./project",
       "schema": "./project/schema.json"
     },
+    "add-bundler": {
+      "description": "Add Web Bundler",
+      "hidden": true,
+      "factory": "./add-bundler",
+      "schema": "./add-bundler/schema.json"
+    },
     "new": {
       "description": "Generates a typescript library project",
       "hidden": true,

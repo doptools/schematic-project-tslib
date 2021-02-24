@@ -17,6 +17,11 @@
             },
             "x-prompt": "What name would you like to use for the new project?"
         },
+        "web": {
+            "type": "boolean",
+            "description": "Adds web bundler",
+            "default": false
+        },
         "private": {
             "type": "boolean",
             "description": "Mark the project as private",

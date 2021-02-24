@@ -34,6 +34,9 @@ export default function (options: NewTsLibProjectOptions): Rule {
     //const packageName = (scope ? `@${scope}/` : '') + name;
 
     return chain([
+        async (_: Tree, context: SchematicContext) => {
+            context.logger.info('Creating Typescript Library Project');
+        },
         mergeWith(
             apply(empty(), [
                 schematic("project", baseOptions),

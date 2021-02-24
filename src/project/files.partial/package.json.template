@@ -1,9 +1,12 @@
 {
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
+    "main": "dist/main/index.js",
+    "typings": "dist/main/index.d.ts",
+    "module": "dist/module/index.js",
     "scripts": {
+        "prebuild": "rimraf dist",
         "build": "run-p build:*",
-        "build:ts": "tsc -p tsconfig.json",
+        "build:main": "tsc -p tsconfig.json",
+        "build:module": "tsc -p tsconfig.module.json",
         "fix": "run-s fix:*",
         "fix:lint": "tslint src --ext .ts --fix",
         "check": "run-p check:*",
@@ -15,6 +18,7 @@
         "tslib": "<%= versions.tslib %>"
     },
     "devDependencies": {
+        "@doptools/plugin-project-tslib": "<%= versions._doptools_plugin_project_tslib %>",
         "cspell": "<%= versions.cspell %>",
         "npm-run-all": "<%= versions.npm_run_all %>",
         "tslint": "<%= versions.tslint %>",
@@ -22,5 +26,15 @@
         "tslint-config-standard": "<%= versions.tslint_config_standard %>",
         "ts-node": "<%= versions.ts_node %>",
         "typescript": "<%= versions.typescript %>"
+    },
+    "dops": {
+        "plugins": [
+            {
+                "type": "user",
+                "name": "@doptools/plugin-project-tslib",
+                "url": "@doptools/plugin-project-tslib",
+                "tag": "<%= versions._doptools_plugin_project_tslib %>"
+            }
+        ]
     }
 }

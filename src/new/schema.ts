@@ -15,6 +15,10 @@ export interface NewTsLibProjectOptions {
    */
   name: string;
   /**
+   * Adds web bundler
+   */
+  web?: boolean;
+  /**
    * Mark the project as private
    */
   private?: boolean;

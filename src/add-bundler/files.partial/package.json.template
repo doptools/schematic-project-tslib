@@ -1,0 +1,15 @@
+{
+    "esnext": "build/esnext/index.js",
+    "scripts": {
+        "build:esnext": "tsc -p tsconfig.module.json --outDir dist/esnext",
+        "build:main": "rollup -c rollup.config.js",
+        "build:module": "rollup -c rollup.config.js --format es"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "<%= versions._rollup__plugin_commonjs %>",
+        "@rollup/plugin-node-resolve": "<%= versions._rollup__plugin_node_resolve %>",
+        "@rollup/plugin-typescript": "<%= versions._rollup__plugin_typescript %>",
+        "case": "<%= versions.case %>",
+        "rollup": "<%= versions.rollup %>"
+    }
+}

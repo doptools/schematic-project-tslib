@@ -15,6 +15,10 @@ export interface TsLibProjectOptions {
    */
   private?: boolean;
   /**
+   * Adds web bundler
+   */
+  web?: boolean;
+  /**
    * A description of the project
    */
   description?: string;

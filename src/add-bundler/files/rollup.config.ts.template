@@ -1,0 +1,43 @@
+import typescript from '@rollup/plugin-typescript';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+
+const packageJson = require('./package.json');
+
+const globals = {
+    ...packageJson.devDependencies,
+    ...packageJson.peerDependencies,
+};
+
+export default commandLineArgs => {
+    const output = commandLineArgs.format !== 'es' ?
+        {
+            file: packageJson.main,
+            name: "<%= name %>",
+            format: 'umd',
+            sourcemap: true
+        } : {
+            file: packageJson.module,
+            format: 'es', // ES Modules
+            sourcemap: true,
+        };
+    return {
+        input: 'src/index.ts',
+        external: Object.keys(globals),
+        output,
+        plugins: [
+            resolve(),
+            commonjs(),
+            typescript({
+                tsconfig: './tsconfig.module.json',
+                incremental: false,
+                declaration: false,
+                declarationDir: undefined
+            }),
+            commonjs({
+                exclude: 'node_modules',
+                ignoreGlobal: true,
+            }),
+        ]
+    }
+};
