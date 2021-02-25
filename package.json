@@ -19,7 +19,7 @@
   "dependencies": {
     "@angular-devkit/core": "^11.2.1",
     "@angular-devkit/schematics": "^11.2.1",
-    "@doptools/schematic-project-base": "^v0.0.0-dev.15",
+    "@doptools/schematic-project-base": "^v0.0.0-dev.16",
     "jsonc": "^2.0.0",
     "merge-package.json": "^3.1.8",
     "type-fest": "^0.21.2"

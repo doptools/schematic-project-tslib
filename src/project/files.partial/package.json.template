@@ -3,13 +3,9 @@
     "typings": "dist/main/index.d.ts",
     "module": "dist/module/index.js",
     "scripts": {
-        "prebuild": "run-p prebuild:*",
-        "prebuild:clean": "yarn run clean",
-
         "clean": "run-p clean:*",
         "clean:dist": "rimraf dist",
-        "clean:docs": "rimraf docs",
-
+       
         "build": "run-p build:*",
         "build:types": "tsc -p tsconfig.json --declaration --emitDeclarationOnly --declarationDir dist",
         "build:main": "tsc -p tsconfig.json",
@@ -17,6 +13,7 @@
 
         "_doc": "typedoc  --theme minimal --excludePrivate --exclude **/*.spec.ts /src",
         "doc": "run-s doc:*",
+        "doc:clean": "rimraf docs",
         "doc:html": "yarn run _doc --out docs",
         "doc:json": "yarn run _doc --json docs/typedoc.json",
 
@@ -24,8 +21,13 @@
         "check:spelling": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
         
         "prerelease": "run-p prerelease:*",
+        "prerelease:clean": "yarn clean",
         "prerelease:build": "yarn build",
         "prerelease:docs": "yarn doc",
+
+        "start": "run-p start:*",
+        "start:build": "yarn build",
+        "start:watch": "yarn run watch:build",
 
         "release": "echo release",
 
